@@ -21,19 +21,19 @@
   </head>
 
   <body>
-   <nav class="navbar mb-3" data-bs-theme="dark" style="background-color: #4E2A84;">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <% @user = User.find_by({"id" => session["user_id"]}) %>
-        <a href="/" class="btn btn-default">Home</a>
+        <a href="/" class="btn btn-primary">Home</a>
         <span class="navbar-text">
          <%if @user == nil %>
-          <a href="/login" class="btn btn-default">Login</a>
+          <a href="/login" class="btn btn-primary">Login</a>
           |
-          <a href="/users/new" class="btn btn-default">Signup</a>
+          <a href="/users/new" class="btn btn-primary">Signup</a>
          <% else %>
            <%= @user["username"] %>
            |
-           <a href="/logout" class="btn btn-default">Logout</a>
+           <a href="/logout" class="btn btn-primary">Logout</a>
          <% end %>     
         </span>
      </div>
@@ -41,7 +41,7 @@
 
 
     <%if flash["notice"] != nil %>
-      <div class="container alert alert-secondary">
+      <div class="container alert alert-primary">
           <%= flash["notice"] %>
       </div>
     <% end %>
